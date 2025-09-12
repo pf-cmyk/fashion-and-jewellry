@@ -25,78 +25,223 @@ const Products = () => {
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
 
-  // Mock products based on quiz data
-  const products: Product[] = [
-    {
-      id: '1',
-      name: 'Handcrafted Ceramic Vase',
-      price: 89,
-      originalPrice: 129,
-      image: '/placeholder.svg',
-      description: 'Beautiful artisan vase with unique glazing, perfect for fresh flowers or as a standalone piece.',
-      category: 'Home Decor',
-      featured: true,
-      urgency: 'Only 3 left in stock',
-      rating: 4.9,
-      reviews: 127
-    },
-    {
-      id: '2',
-      name: 'Artisan Jewelry Box',
-      price: 165,
-      image: '/placeholder.svg',
-      description: 'Handmade wooden jewelry box with velvet interior and intricate details.',
-      category: 'Accessories',
-      rating: 4.8,
-      reviews: 89
-    },
-    {
-      id: '3',
-      name: 'Luxury Candle Set',
-      price: 78,
-      originalPrice: 95,
-      image: '/placeholder.svg',
-      description: 'Set of three premium soy candles with unique Australian-inspired scents.',
-      category: 'Home & Lifestyle',
-      featured: true,
-      urgency: 'Flash sale - 48 hours left',
-      rating: 4.7,
-      reviews: 203
-    },
-    {
-      id: '4',
-      name: 'Vintage Silk Scarf',
-      price: 120,
-      image: '/placeholder.svg',
-      description: 'Luxurious silk scarf with hand-painted botanical design, perfect for any season.',
-      category: 'Fashion',
-      rating: 4.9,
-      reviews: 156
-    },
-    {
-      id: '5',
-      name: 'Artisan Tea Collection',
-      price: 45,
-      image: '/placeholder.svg',
-      description: 'Curated collection of premium loose-leaf teas from local growers.',
-      category: 'Gourmet',
-      rating: 4.6,
-      reviews: 92
-    },
-    {
-      id: '6',
-      name: 'Hand-thrown Pottery Set',
-      price: 220,
-      originalPrice: 280,
-      image: '/placeholder.svg',
-      description: 'Complete dinner set crafted by local artisan, each piece unique.',
-      category: 'Home Decor',
-      featured: true,
-      urgency: 'Limited edition - only 5 sets available',
-      rating: 5.0,
-      reviews: 67
-    }
-  ];
+  // Mock products based on quiz data with accurate pricing
+  const getProductsForBudget = (budget: string) => {
+    const allProducts = [
+      // Under $50 products
+      {
+        id: '1',
+        name: 'Artisan Tea Collection',
+        price: 45,
+        image: '/placeholder.svg',
+        description: 'Curated collection of premium loose-leaf teas from local growers.',
+        category: 'Gourmet',
+        rating: 4.6,
+        reviews: 92,
+        budgetRange: 'under50'
+      },
+      {
+        id: '2',
+        name: 'Handmade Soy Candle',
+        price: 32,
+        originalPrice: 40,
+        image: '/placeholder.svg',
+        description: 'Single premium soy candle with Australian-inspired scent.',
+        category: 'Home & Lifestyle',
+        featured: true,
+        urgency: 'Limited stock - only 8 left',
+        rating: 4.7,
+        reviews: 156,
+        budgetRange: 'under50'
+      },
+      {
+        id: '3',
+        name: 'Botanical Bath Salts',
+        price: 28,
+        image: '/placeholder.svg',
+        description: 'Relaxing bath salts infused with native Australian botanicals.',
+        category: 'Wellness',
+        rating: 4.5,
+        reviews: 73,
+        budgetRange: 'under50'
+      },
+      
+      // $50-$100 products
+      {
+        id: '4',
+        name: 'Handcrafted Ceramic Mug Set',
+        price: 78,
+        originalPrice: 95,
+        image: '/placeholder.svg',
+        description: 'Set of two artisan ceramic mugs with unique glazing.',
+        category: 'Home Decor',
+        featured: true,
+        urgency: 'Flash sale - 48 hours left',
+        rating: 4.8,
+        reviews: 203,
+        budgetRange: '50-100'
+      },
+      {
+        id: '5',
+        name: 'Luxury Candle Trio',
+        price: 89,
+        image: '/placeholder.svg',
+        description: 'Set of three premium soy candles with unique Australian-inspired scents.',
+        category: 'Home & Lifestyle',
+        rating: 4.7,
+        reviews: 134,
+        budgetRange: '50-100'
+      },
+      {
+        id: '6',
+        name: 'Native Plant Care Kit',
+        price: 65,
+        image: '/placeholder.svg',
+        description: 'Complete kit for caring for Australian native plants.',
+        category: 'Garden & Home',
+        rating: 4.6,
+        reviews: 89,
+        budgetRange: '50-100'
+      },
+      
+      // $100-$200 products
+      {
+        id: '7',
+        name: 'Artisan Jewelry Box',
+        price: 165,
+        image: '/placeholder.svg',
+        description: 'Handmade wooden jewelry box with velvet interior and intricate details.',
+        category: 'Accessories',
+        featured: true,
+        rating: 4.9,
+        reviews: 89,
+        budgetRange: '100-200'
+      },
+      {
+        id: '8',
+        name: 'Vintage Silk Scarf',
+        price: 120,
+        image: '/placeholder.svg',
+        description: 'Luxurious silk scarf with hand-painted botanical design.',
+        category: 'Fashion',
+        rating: 4.8,
+        reviews: 156,
+        budgetRange: '100-200'
+      },
+      {
+        id: '9',
+        name: 'Ceramic Dinnerware Set',
+        price: 185,
+        originalPrice: 220,
+        image: '/placeholder.svg',
+        description: 'Hand-thrown ceramic dinner set for two, each piece unique.',
+        category: 'Home Decor',
+        urgency: 'Only 4 sets remaining',
+        rating: 4.9,
+        reviews: 67,
+        budgetRange: '100-200'
+      },
+      
+      // $200+ products
+      {
+        id: '10',
+        name: 'Complete Pottery Collection',
+        price: 320,
+        originalPrice: 380,
+        image: '/placeholder.svg',
+        description: 'Complete handcrafted pottery collection including vases, bowls, and serving pieces.',
+        category: 'Home Decor',
+        featured: true,
+        urgency: 'Limited edition - only 3 collections available',
+        rating: 5.0,
+        reviews: 42,
+        budgetRange: 'over200'
+      },
+      {
+        id: '11',
+        name: 'Premium Artisan Gift Hamper',
+        price: 285,
+        image: '/placeholder.svg',
+        description: 'Curated collection of premium local artisan products in beautiful presentation box.',
+        category: 'Gift Sets',
+        rating: 4.9,
+        reviews: 78,
+        budgetRange: 'over200'
+      },
+      {
+        id: '12',
+        name: 'Custom Commission Artwork',
+        price: 450,
+        image: '/placeholder.svg',
+        description: 'Bespoke artwork commissioned from local artists, personalized to your specifications.',
+        category: 'Art & Collectibles',
+        rating: 5.0,
+        reviews: 23,
+        budgetRange: 'over200'
+      }
+    ];
+
+    // Filter products based on budget
+    if (!budget) return allProducts.filter(p => p.featured);
+    
+    return allProducts.filter(product => product.budgetRange === budget);
+  };
+
+  const products: Product[] = quizData?.budget 
+    ? getProductsForBudget(quizData.budget)
+    : [
+        // Default featured products across all ranges
+        {
+          id: '2',
+          name: 'Handmade Soy Candle',
+          price: 32,
+          originalPrice: 40,
+          image: '/placeholder.svg',
+          description: 'Single premium soy candle with Australian-inspired scent.',
+          category: 'Home & Lifestyle',
+          featured: true,
+          urgency: 'Limited stock - only 8 left',
+          rating: 4.7,
+          reviews: 156
+        },
+        {
+          id: '4',
+          name: 'Handcrafted Ceramic Mug Set',
+          price: 78,
+          originalPrice: 95,
+          image: '/placeholder.svg',
+          description: 'Set of two artisan ceramic mugs with unique glazing.',
+          category: 'Home Decor',
+          featured: true,
+          urgency: 'Flash sale - 48 hours left',
+          rating: 4.8,
+          reviews: 203
+        },
+        {
+          id: '7',
+          name: 'Artisan Jewelry Box',
+          price: 165,
+          image: '/placeholder.svg',
+          description: 'Handmade wooden jewelry box with velvet interior and intricate details.',
+          category: 'Accessories',
+          featured: true,
+          rating: 4.9,
+          reviews: 89
+        },
+        {
+          id: '10',
+          name: 'Complete Pottery Collection',
+          price: 320,
+          originalPrice: 380,
+          image: '/placeholder.svg',
+          description: 'Complete handcrafted pottery collection including vases, bowls, and serving pieces.',
+          category: 'Home Decor',
+          featured: true,
+          urgency: 'Limited edition - only 3 collections available',
+          rating: 5.0,
+          reviews: 42
+        }
+      ];
 
   const toggleProduct = (productId: string) => {
     setSelectedProducts(prev => 
@@ -152,7 +297,11 @@ const Products = () => {
           <div className="text-center mb-12">
             <h1 className="text-heading mb-4">Perfect Gifts for Your {quizData.recipient}</h1>
             <p className="text-editorial text-muted-foreground max-w-2xl mx-auto">
-              Based on your preferences, we've curated these beautiful pieces that would be perfect for 
+              Based on your {quizData.budget === 'under50' ? 'under $50' : 
+                         quizData.budget === '50-100' ? '$50-$100' :
+                         quizData.budget === '100-200' ? '$100-$200' :
+                         quizData.budget === 'over200' ? '$200+' : ''} budget and preferences, 
+              we've curated these beautiful pieces that would be perfect for 
               {quizData.occasion === 'justbecause' ? ' showing you care' : ` ${quizData.occasion}`}.
             </p>
           </div>
