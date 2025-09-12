@@ -169,7 +169,7 @@ const Products = () => {
             {products.filter(product => product.featured).map((product) => (
               <Card
                 key={product.id}
-                className="product-card cursor-pointer overflow-hidden border-0 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-strong)]"
+                className="product-card group cursor-pointer overflow-hidden border-0 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-strong)]"
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
@@ -193,7 +193,7 @@ const Products = () => {
                     </Badge>
                   )}
 
-                  <div className="product-overlay flex items-center justify-center">
+                  <div className="product-overlay group-hover:opacity-100 flex items-center justify-center">
                     <Button
                       variant={selectedProducts.includes(product.id) ? "secondary" : "primary"}
                       size="sm"
@@ -258,7 +258,7 @@ const Products = () => {
             {products.map((product) => (
               <Card
                 key={product.id}
-                className="product-card cursor-pointer overflow-hidden border-0 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]"
+                className="product-card group cursor-pointer overflow-hidden border-0 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]"
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
@@ -269,7 +269,7 @@ const Products = () => {
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   
-                  <div className="product-overlay flex items-center justify-center">
+                  <div className="product-overlay group-hover:opacity-100 flex items-center justify-center">
                     <Button
                       variant={selectedProducts.includes(product.id) ? "secondary" : "ghost"}
                       size="sm"

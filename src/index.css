@@ -184,14 +184,14 @@
 
   /* Product hover effects */
   .product-card {
-    @apply group relative overflow-hidden rounded-2xl;
+    @apply relative overflow-hidden rounded-2xl;
     @apply transition-all duration-500 hover:scale-[1.02];
     @apply hover:shadow-[var(--shadow-strong)];
   }
   
   .product-overlay {
     @apply absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent;
-    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+    @apply opacity-0 transition-opacity duration-300;
   }
 }
 
