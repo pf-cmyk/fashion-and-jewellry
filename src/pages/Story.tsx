@@ -10,7 +10,7 @@ const Story = () => {
       name: "Sarah Mitchell",
       location: "Perth, WA",
       rating: 5,
-      text: "I've never experienced such thoughtful curation and personal service. Every piece I've bought from Fossick & Co has been absolutely perfect.",
+      text: "I've never experienced such thoughtful curation and personal service. Every piece I've bought from Luxe Jewel Co has been absolutely perfect.",
       purchase: "Handcrafted Ceramic Collection"
     },
     {
@@ -24,7 +24,7 @@ const Story = () => {
       name: "Michael Chen",
       location: "Melbourne, VIC", 
       rating: 5,
-      text: "As someone who struggles with gift-giving, Fossick & Co made me look like a thoughtful genius. My wife still raves about her anniversary gift.",
+      text: "As someone who struggles with gift-giving, Luxe Jewel Co made me look like a thoughtful genius. My wife still raves about her anniversary gift.",
       purchase: "Luxury Candle Set"
     }
   ];
@@ -47,7 +47,7 @@ const Story = () => {
           <h1 className="text-hero mb-6">Our Story</h1>
           <p className="text-editorial text-muted-foreground max-w-3xl mx-auto mb-8">
             Born from a passion for beautiful objects and meaningful connections, 
-            Fossick & Co celebrates the art of thoughtful gifting in the heart of Kalgoorlie.
+            Luxe Jewel Co celebrates the art of thoughtful gifting in the heart of Kalgoorlie.
           </p>
         </section>
 
@@ -68,7 +68,7 @@ const Story = () => {
                 with talented creators across Australia.
               </p>
               <p>
-                Today, Fossick & Co stands as a beacon for conscious consumption and meaningful gifting, 
+                Today, Luxe Jewel Co stands as a beacon for conscious consumption and meaningful gifting, 
                 proving that the perfect gift isn't just about the object—it's about the love, 
                 thought, and story that comes with it.
               </p>
@@ -78,7 +78,7 @@ const Story = () => {
           <div className="order-1 lg:order-2">
             <img 
               src={storefrontImage} 
-              alt="Fossick & Co storefront in Kalgoorlie"
+              alt="Luxe Jewel Co storefront in Kalgoorlie"
               className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
             />
           </div>
@@ -173,7 +173,7 @@ const Story = () => {
           <div className="card-hero max-w-3xl mx-auto">
             <h2 className="text-heading mb-6">Ready to Create Your Own Story?</h2>
             <p className="text-editorial text-muted-foreground mb-8">
-              Join thousands of thoughtful gift-givers who trust Fossick & Co to help 
+              Join thousands of thoughtful gift-givers who trust Luxe Jewel Co to help 
               them create meaningful moments and lasting memories.
             </p>
             

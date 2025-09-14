@@ -28,7 +28,7 @@ const ThankYou = () => {
   const [orderNumber] = useState(() => `FC${Date.now().toString().slice(-6)}`);
 
   const referralCode = `FRIEND${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-  const shareUrl = `https://fossickandco.com.au?ref=${referralCode}`;
+  const shareUrl = `https://luxejewelco.com.au?ref=${referralCode}`;
 
   useEffect(() => {
     // Confetti effect on load
@@ -62,7 +62,7 @@ const ThankYou = () => {
   };
 
   const socialShare = (platform: string) => {
-    const text = "I just discovered the most beautiful boutique gifts at Fossick & Co! Check them out:";
+    const text = "I just discovered the most beautiful boutique gifts at Luxe Jewel Co! Check them out:";
     let url = '';
     
     switch (platform) {
@@ -273,8 +273,8 @@ const ThankYou = () => {
           
           <p className="text-sm text-muted-foreground">
             Questions about your order? Contact us at{' '}
-            <a href="mailto:hello@fossickandco.com.au" className="text-primary hover:underline">
-              hello@fossickandco.com.au
+            <a href="mailto:hello@luxejewelco.com.au" className="text-primary hover:underline">
+              hello@luxejewelco.com.au
             </a>
           </p>
         </div>
