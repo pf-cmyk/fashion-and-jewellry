@@ -5,7 +5,7 @@ interface UrgencyTimerProps {
   className?: string;
 }
 
-export const UrgencyTimer = ({ initialMinutes = 47, className = "" }: UrgencyTimerProps) => {
+const UrgencyTimer = ({ initialMinutes = 47, className = "" }: UrgencyTimerProps) => {
   const [timeLeft, setTimeLeft] = useState(initialMinutes * 60); // Convert to seconds
 
   useEffect(() => {
@@ -35,3 +35,6 @@ export const UrgencyTimer = ({ initialMinutes = 47, className = "" }: UrgencyTim
     </div>
   );
 };
+
+export { UrgencyTimer };
+export default UrgencyTimer;

@@ -8,7 +8,7 @@ const notifications = [
   { name: "Lisa W.", location: "Adelaide", product: "Sapphire Pendant", time: "15 minutes ago" },
 ];
 
-export const SocialProof = () => {
+const SocialProof = () => {
   const [currentNotification, setCurrentNotification] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -45,3 +45,6 @@ export const SocialProof = () => {
     </div>
   );
 };
+
+export { SocialProof };
+export default SocialProof;
