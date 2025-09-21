@@ -295,6 +295,9 @@ const Products = () => {
         {/* Personalized Header */}
         {quizData && (
           <div className="text-center mb-12">
+            <div className="bg-red-600 text-white px-6 py-3 rounded-full text-lg font-bold mb-6 inline-block animate-pulse">
+              🎯 FLASH SALE: 40% OFF Everything - Limited Stock!
+            </div>
             <h1 className="text-heading mb-4">Perfect Gifts for Your {quizData.recipient}</h1>
             <p className="text-editorial text-muted-foreground max-w-2xl mx-auto">
               Based on your {quizData.budget === 'under50' ? 'under $50' : 
@@ -304,6 +307,9 @@ const Products = () => {
               we've curated these beautiful pieces that would be perfect for 
               {quizData.occasion === 'justbecause' ? ' showing you care' : ` ${quizData.occasion}`}.
             </p>
+            <div className="mt-4 text-sm text-gray-500">
+              ⚡ Over 247 people viewing this collection right now
+            </div>
           </div>
         )}
 

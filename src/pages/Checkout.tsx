@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, CreditCard, Shield, Clock, Check, Apple } from 'lucide-react';
+import { UrgencyTimer } from '@/components/ui/urgency-timer';
 
 const Checkout = () => {
   const location = useLocation();
@@ -74,6 +75,7 @@ const Checkout = () => {
             </Link>
             
             <div className="flex items-center space-x-4">
+              <UrgencyTimer initialMinutes={47} className="text-sm" />
               <div className="text-sm text-muted-foreground">
                 Step 4 of 4 - Secure Checkout
               </div>
@@ -346,26 +348,30 @@ const Checkout = () => {
 
               {/* Urgency & Trust */}
               <div className="mt-6 space-y-4">
-                <div className="bg-accent/10 rounded-lg p-4 text-center">
-                  <Clock className="h-5 w-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-medium">Limited Stock Alert</div>
-                  <div className="text-xs text-muted-foreground">
-                    2 other customers are viewing these items
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+                  <Clock className="h-5 w-5 text-red-600 mx-auto mb-2 animate-pulse" />
+                  <div className="text-sm font-medium text-red-800">⚠️ Limited Stock Alert</div>
+                  <div className="text-xs text-red-600">
+                    Only 3 left in stock! 17 people have this in their cart
                   </div>
                 </div>
 
-                <div className="text-center space-y-2">
-                  <div className="flex items-center justify-center text-sm text-muted-foreground">
-                    <Check className="h-4 w-4 text-success mr-2" />
-                    SSL Encrypted Checkout
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="flex items-center gap-2 p-2 bg-green-50 rounded text-green-700">
+                    <Check className="h-3 w-3" />
+                    <span>256-bit SSL</span>
                   </div>
-                  <div className="flex items-center justify-center text-sm text-muted-foreground">
-                    <Check className="h-4 w-4 text-success mr-2" />
-                    30-Day Return Policy
+                  <div className="flex items-center gap-2 p-2 bg-blue-50 rounded text-blue-700">
+                    <Check className="h-3 w-3" />
+                    <span>Free Shipping</span>
                   </div>
-                  <div className="flex items-center justify-center text-sm text-muted-foreground">
-                    <Check className="h-4 w-4 text-success mr-2" />
-                    Satisfaction Guaranteed
+                  <div className="flex items-center gap-2 p-2 bg-purple-50 rounded text-purple-700">
+                    <Check className="h-3 w-3" />
+                    <span>30-Day Returns</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 bg-red-50 rounded text-red-700">
+                    <Check className="h-3 w-3" />
+                    <span>Guaranteed</span>
                   </div>
                 </div>
               </div>

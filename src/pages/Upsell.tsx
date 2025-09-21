@@ -106,11 +106,17 @@ const Upsell = () => {
           {/* Main Content */}
           <div className="lg:col-span-2">
             <div className="text-center mb-8">
+              <div className="bg-green-100 border border-green-300 rounded-xl p-4 mb-6 inline-block">
+                <div className="text-green-800 font-semibold">🎁 LIMITED TIME: Add-ons 50% OFF when you buy today!</div>
+              </div>
               <h1 className="text-heading mb-4">Make It Extra Special</h1>
               <p className="text-editorial text-muted-foreground">
                 Elevate your gift with our curated add-ons, each designed to create 
                 a more meaningful and memorable experience.
               </p>
+              <div className="mt-4 text-sm text-gray-500">
+                💝 94% of customers who add these extras say it made their gift "perfect"
+              </div>
             </div>
 
             {/* Featured Add-on */}
