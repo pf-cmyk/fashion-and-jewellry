@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, ArrowRight, Heart, ShoppingBag, Clock, Star, Plus } from 'lucide-react';
+import { SacredDropCard } from '@/components/ui/sacred-drop-card';
+import { ArrowLeft, ArrowRight, Heart, ShoppingBag, Clock, Star, Plus, Sparkles } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -17,6 +18,9 @@ interface Product {
   urgency?: string;
   rating: number;
   reviews: number;
+  tier?: string;
+  packaging?: string;
+  shipping?: string;
 }
 
 const Products = () => {
@@ -142,7 +146,23 @@ const Products = () => {
         budgetRange: '100-200'
       },
       
-      // $200+ products
+      // $200+ products - Sacred Drop Vault
+      {
+        id: 'sacred-garnet-ring',
+        name: 'Garnet Zircon & Pearl Open Ring',
+        price: 349,
+        image: '/src/assets/garnet-zircon-pearl-ring.png',
+        description: 'Three stones. One moment. Proof of presence, sealed in shimmer.',
+        category: 'Sacred Drop',
+        featured: true,
+        urgency: 'Ceremonial drop - meant for one',
+        rating: 5.0,
+        reviews: 1,
+        budgetRange: 'over200',
+        tier: 'sacred-drop',
+        packaging: 'Linen wrap, handwritten card, natural fiber ribbon',
+        shipping: '3–7 days global, tracked'
+      },
       {
         id: '10',
         name: 'Complete Pottery Collection',
@@ -311,6 +331,25 @@ const Products = () => {
               ⚡ Over 247 people viewing this collection right now
             </div>
           </div>
+        )}
+
+        {/* Sacred Drop Vault */}
+        {quizData?.budget === 'over200' && (
+          <section className="mb-16">
+            <h2 className="text-subheading mb-8 flex items-center justify-center">
+              <Sparkles className="h-6 w-6 text-amber-500 mr-3" />
+              Sacred Drop Vault
+              <Sparkles className="h-6 w-6 text-amber-500 ml-3" />
+            </h2>
+            <div className="max-w-2xl mx-auto">
+              <SacredDropCard 
+                onPurchase={() => {
+                  // Implement Stripe checkout for Sacred Drop
+                  console.log('Sacred Drop purchase initiated');
+                }}
+              />
+            </div>
+          </section>
         )}
 
         {/* Featured Products */}
